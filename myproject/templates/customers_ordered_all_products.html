@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers Ordered All Products</title>
+</head>
+<body>
+    <h1>Customers Who Have Ordered All Products</h1>
+    <ul>
+        {% for customer_id in customers_ordered_all_products %}
+            <li>{{ customer_id }}</li>
+        {% empty %}
+            <li>None</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

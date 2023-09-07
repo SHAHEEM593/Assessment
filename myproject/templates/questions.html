@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px; 
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Question:</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>
+            <input type="radio" name="question" value="most_popular_product"> Find the most popular product among customers
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="question" value="customers_ordered_all_products"> Find customers who have ordered all products
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="question" value="customers_bought_inexpensive_items"> Find customers who have bought inexpensive items
+        </label>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+{% endblock %}
